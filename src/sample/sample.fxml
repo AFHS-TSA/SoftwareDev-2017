@@ -5,7 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane fx:id="assignment" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+>>>>>>> 48c18e06f8b2ce46e781abb3e70272515c8fc6a1
    <children>
       <Label fx:id="dashText" layoutX="213.0" layoutY="20.0" text="Dashboard">
          <font>
@@ -18,6 +22,9 @@
             <Font size="24.0" />
          </font>
       </Label>
+<<<<<<< HEAD
       <Button layoutX="60.0" layoutY="160.0" mnemonicParsing="false" text="Assignment List" />
+=======
+>>>>>>> 48c18e06f8b2ce46e781abb3e70272515c8fc6a1
    </children>
 </AnchorPane>

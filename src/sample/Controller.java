@@ -1,7 +1,6 @@
 package sample;
 
 import javafx.fxml.FXML;
-<<<<<<< HEAD
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,12 +23,6 @@ public class Controller implements Initializable{
                        "Test 2",
                        "Test 3",
                        "Test 4"};
-=======
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-
-public class Controller {
->>>>>>> 48c18e06f8b2ce46e781abb3e70272515c8fc6a1
 
     @FXML
     public Label dashText;
@@ -38,33 +31,22 @@ public class Controller {
     @FXML
     public Button rewardButton;
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 48c18e06f8b2ce46e781abb3e70272515c8fc6a1
     @FXML
     private void onRewardClicked() {
         //placeholder code for reward system layout
         /*Parent root;
         try {
-<<<<<<< HEAD
             root = FXMLLoader.load(getClass().getClassLoader().getResource("rewardsystemlayout.fxml"));
             Stage stage = new Stage();
             stage.setTitle("My Galaxy");
             stage.setScene(new Scene(root, width, height));
-=======
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("teststage.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("My New Stage Title");
-            stage.setScene(new Scene(root, 450, 450));
->>>>>>> 48c18e06f8b2ce46e781abb3e70272515c8fc6a1
             stage.show();
         }
         catch (IOException e) {
             e.printStackTrace();
         }*/
-<<<<<<< HEAD
 
     }
 
@@ -109,10 +91,6 @@ public class Controller {
     public void initialize(URL location, ResourceBundle resources) {
         randomQuoteGen();
     }
-=======
-    }
-
->>>>>>> 48c18e06f8b2ce46e781abb3e70272515c8fc6a1
 }
 
 

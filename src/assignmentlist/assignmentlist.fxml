@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignmentlist.assignmentController">
+   <children>
+      <ToolBar accessibleRole="BUTTON" prefHeight="40.0" prefWidth="1003.0" style="-fx-background-color: white;">
+        <items>
+          <Button mnemonicParsing="false" onAction="#handleButton" text="Add" />
+          <Button mnemonicParsing="false" onAction="#removeList" text="Delete" />
+        </items>
+      </ToolBar>
+      <AnchorPane prefWidth="1200.0" style="-fx-background-color: white;">
+         <children>
+            <ListView fx:id="assignmentList" prefHeight="200.0" prefWidth="1200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0" />
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="26.0" prefWidth="1200.0" textFill="#f5d797" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

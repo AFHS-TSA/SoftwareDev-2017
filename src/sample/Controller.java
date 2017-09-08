@@ -1,8 +1,10 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -55,19 +57,27 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    private void onAssignmentClicked() {
+    private void onAssignmentClicked(ActionEvent e) {
         //placeholder code for assignment list
 
         try {
+        	/*
     		Parent assignlist = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
     		Stage stage = new Stage();
     		stage.setScene(new Scene(assignlist));
     		stage.setResizable(false);
     		stage.alwaysOnTopProperty();
-    		stage.show();
+    		stage.show();*/
+    		
+
+    		Parent assignmentParent = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
+    		Scene assignmentScene = new Scene(assignmentParent);
+    		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    		appStage.setScene(assignmentScene);
+    		appStage.show();
         }
-        catch (IOException e) {
-            e.printStackTrace();
+        catch (IOException ec) {
+            ec.printStackTrace();
         }
     }
 

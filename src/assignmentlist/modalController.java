@@ -29,6 +29,7 @@ public class modalController implements Initializable {
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 	
+	
 	@FXML
 	public void cancelAdd(ActionEvent event) {
 		((Node)(event.getSource())).getScene().getWindow().hide();

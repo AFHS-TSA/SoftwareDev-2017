@@ -11,7 +11,7 @@
       <ToolBar accessibleRole="BUTTON" prefHeight="40.0" prefWidth="1003.0" style="-fx-background-color: white;">
         <items>
           <Button mnemonicParsing="false" onAction="#handleButton" text="Add" />
-          <Button mnemonicParsing="false" onAction="#removeList" text="Delete" />
+          <Button mnemonicParsing="false" onAction="#removeList" text="Close Assignment" />
             <Button mnemonicParsing="false" onAction="#getHome" text="Back" />
         </items>
       </ToolBar>

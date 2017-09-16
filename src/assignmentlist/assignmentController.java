@@ -22,6 +22,7 @@ public class assignmentController implements Initializable {
 
 	@FXML
 	private ListView<String> assignmentList;
+	public static int score = 0;
 	
 	private static ObservableList<String> list = FXCollections.observableArrayList();
 	
@@ -45,6 +46,8 @@ public class assignmentController implements Initializable {
 	    int selectedItem = assignmentList.getSelectionModel().getSelectedIndex();
 	    System.out.println(selectedItem);
 	    list.remove(selectedItem);
+	    score++;
+	    System.out.println(score);
 	}
 	
 	@FXML

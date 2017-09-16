@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+import assignmentlist.assignmentController;
+
 public class Controller implements Initializable{
 
 
@@ -36,6 +38,8 @@ public class Controller implements Initializable{
     public Label quote;
     @FXML
     public Button rewardButton;
+    @FXML
+    private Label getScore;
 
 
 
@@ -104,7 +108,7 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //randomQuoteGen();
+        getScore.setText(String.valueOf(assignmentController.score));
     }
 }
 

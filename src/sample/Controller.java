@@ -78,7 +78,7 @@ public class Controller implements Initializable{
     		
 
     		Parent assignmentParent = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
-    		Scene assignmentScene = new Scene(assignmentParent);
+    		Scene assignmentScene = (new Scene(assignmentParent, Main.width, Main.height));
     		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
     		appStage.setScene(assignmentScene);
     		appStage.show();

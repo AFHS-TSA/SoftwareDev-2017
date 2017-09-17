@@ -71,14 +71,13 @@ public class Controller implements Initializable{
         }
     }
 
-    /*private void randomQuoteGen() {
+    private void randomQuoteGen() {
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
         Random random = new Random();
         do {
             randomInt = random.nextInt((4-0) + 1) + 0;
         } while (randomInt == Integer.parseInt(preferences.get("RandomNumber", "root")));
         quote.setText(""+quotes[randomInt]);
-
         preferences.putInt("RandomNumber", randomInt);
         try {
             preferences.exportNode(new FileOutputStream("Preferences"));
@@ -89,12 +88,12 @@ public class Controller implements Initializable{
         }
 
     }
-*/
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //randomQuoteGen();
+        randomQuoteGen();
     }
 }
 

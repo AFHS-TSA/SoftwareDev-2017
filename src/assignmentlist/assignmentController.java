@@ -61,15 +61,9 @@ public class assignmentController implements Initializable {
 		
 	    System.out.println(selectedItem);
 	    list.remove(selectedItem);
-<<<<<<< HEAD
-	    score++;
-	    System.out.println(score);
-=======
 	    // Add a point every time you remove something
 		score++;
 	    System.out.println(score);
-	    
->>>>>>> css
 	}
 	
 	// Sorting button, sorts alphabetically

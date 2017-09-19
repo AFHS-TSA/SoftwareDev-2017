@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 
 public class modalController implements Initializable {	
 
+	// Initialize variables
 	@FXML
 	private TextField addItem;
 	@FXML
@@ -23,7 +24,8 @@ public class modalController implements Initializable {
 	ObservableList<String> list = assignmentController.returnList();
 	
 	@FXML
-	public void addItem(ActionEvent event) throws IOException{
+	public void addItem(ActionEvent event) throws IOException {
+		// Add an item to assignment list
 		list.add(addItem.getText());
 		System.out.println("Assignment Added");
 		((Node)(event.getSource())).getScene().getWindow().hide();
@@ -32,11 +34,10 @@ public class modalController implements Initializable {
 	
 	@FXML
 	public void cancelAdd(ActionEvent event) {
+		// Closes window
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-	
-}
+	public void initialize(URL location, ResourceBundle resources) { }
 }

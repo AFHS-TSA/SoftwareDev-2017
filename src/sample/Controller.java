@@ -4,11 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.FileOutputStream;
@@ -18,6 +20,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
+import org.controlsfx.control.Notifications;
 
 import assignmentlist.assignmentController;
 
@@ -40,8 +43,6 @@ public class Controller implements Initializable{
     public Button rewardButton;
     @FXML
     private Label getScore;
-
-
 
     @FXML
     private void onRewardClicked() {
@@ -75,7 +76,7 @@ public class Controller implements Initializable{
     		
 
     		Parent assignmentParent = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
-    		Scene assignmentScene = new Scene(assignmentParent);
+    		Scene assignmentScene = (new Scene(assignmentParent, Main.width, Main.height));
     		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
     		appStage.setScene(assignmentScene);
     		appStage.show();

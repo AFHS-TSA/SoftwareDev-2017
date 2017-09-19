@@ -2,9 +2,9 @@ package assignmentlist;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.ResourceBundle;
+import java.util.ResourceBundle; 
+import org.controlsfx.control.Notifications;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 
 public class assignmentController implements Initializable {
 
+	// Initialize variables
 	@FXML
 	private ListView<String> assignmentList;
 	public static int score = 0;
@@ -30,8 +32,10 @@ public class assignmentController implements Initializable {
 		return(list);
 	}	
 	
+	// Button to add an assignment to the list
 	@FXML
 	public void handleButton(ActionEvent event) throws IOException {
+		// Create the new window
 		Parent modalParent = FXMLLoader.load(getClass().getResource("modal.fxml"));
 		Stage stage = new Stage();
 		stage.setScene(new Scene(modalParent));
@@ -41,20 +45,40 @@ public class assignmentController implements Initializable {
 		System.out.println(stage.getOnHiding());
 	}
 	
+	// Button to remove an item from the list
 	@FXML
 	public void removeList(ActionEvent event) {
-	    int selectedItem = assignmentList.getSelectionModel().getSelectedIndex();
+		// Get the index of assignment list array
+		int selectedItem = assignmentList.getSelectionModel().getSelectedIndex();
+		if(selectedItem >= 0) {
+		// Push notification if you remove something from the list
+		Notifications.create()
+			.title("Point Added")
+			.text("There was 1 point added to your account")
+			.position(Pos.BOTTOM_RIGHT)
+			.show();
+		}
+		
 	    System.out.println(selectedItem);
 	    list.remove(selectedItem);
+<<<<<<< HEAD
 	    score++;
 	    System.out.println(score);
+=======
+	    // Add a point every time you remove something
+		score++;
+	    System.out.println(score);
+	    
+>>>>>>> css
 	}
 	
+	// Sorting button, sorts alphabetically
 	@FXML
 	public void getSort(ActionEvent event) {
 		Collections.sort(list);
 	}
 	
+	// Back to home button
 	@FXML
 	public void getHome(ActionEvent e) {
 		try {
@@ -68,8 +92,10 @@ public class assignmentController implements Initializable {
 		}
 	}
 	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// Initializes the array list
 		assignmentList.setItems(list);
 	}
 

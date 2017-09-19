@@ -45,19 +45,19 @@ public class Controller implements Initializable{
     private Label getScore;
 
     @FXML
-    private void onRewardClicked() {
+    private void onRewardClicked(ActionEvent e) {
         //placeholder code for reward system layout
-        /*Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("rewardsystemlayout.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("My Galaxy");
-            stage.setScene(new Scene(root, width, height));
-            stage.show();
+    		Parent rewardParent = FXMLLoader.load(getClass().getResource("/rewardSystem/RewardMain.fxml"));
+    		Scene rewardScene = (new Scene(rewardParent, Main.width, Main.height));
+    		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    		appStage.setResizable(false);
+    		appStage.setScene(rewardScene);
+    		appStage.show();
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        catch (IOException ec) {
+            ec.printStackTrace();
+        }
 
     }
 
@@ -78,6 +78,7 @@ public class Controller implements Initializable{
     		Parent assignmentParent = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
     		Scene assignmentScene = (new Scene(assignmentParent, Main.width, Main.height));
     		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    		appStage.setResizable(false);
     		appStage.setScene(assignmentScene);
     		appStage.show();
         }

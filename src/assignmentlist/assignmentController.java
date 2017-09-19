@@ -26,10 +26,10 @@ public class assignmentController implements Initializable {
 	private ListView<String> assignmentList;
 	public static int score = 0;
 	
-	private static ObservableList<String> list = FXCollections.observableArrayList();
+	private static ObservableList<String> itemList = FXCollections.observableArrayList();
 	
 	public static ObservableList<String> returnList() {
-		return(list);
+		return(itemList);
 	}	
 	
 	// Button to add an assignment to the list
@@ -60,7 +60,7 @@ public class assignmentController implements Initializable {
 		}
 		
 	    System.out.println(selectedItem);
-	    list.remove(selectedItem);
+	    itemList.remove(selectedItem);
 	    // Add a point every time you remove something
 		score++;
 	    System.out.println(score);
@@ -69,7 +69,7 @@ public class assignmentController implements Initializable {
 	// Sorting button, sorts alphabetically
 	@FXML
 	public void getSort(ActionEvent event) {
-		Collections.sort(list);
+		Collections.sort(itemList);
 	}
 	
 	// Back to home button
@@ -90,7 +90,7 @@ public class assignmentController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// Initializes the array list
-		assignmentList.setItems(list);
+		assignmentList.setItems(itemList);
 	}
 
 }

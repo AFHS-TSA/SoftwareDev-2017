@@ -3,15 +3,12 @@ package rewardSystem;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.controlsfx.control.Notifications;
-
-import assignmentlist.assignmentController;
+import initializable.Methods;
+import initializable.Variables;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -21,36 +18,32 @@ public class RewardController implements Initializable {
 	@FXML
 	private ListView<String> rewardItems;
 	@FXML
-	private Label rewardScoreKeep;
+	public Label rewardScoreKeep;
 	
 	private static ObservableList<String> rewardItem = FXCollections.observableArrayList("Placeholder Item 1", "Placeholder Item 2", "Placeholder Item 3");
 	
 	public void getRewardBuy(MouseEvent e) {
 		int getRewardSelection = rewardItems.getSelectionModel().getSelectedIndex();
-		String insufficientFunds = "Insufficient funds";
 		System.out.println(getRewardSelection);
 		
 		switch(getRewardSelection) {
 		case 0:
-			if(assignmentController.score >= 1) {
-			Notifications.create().title("Point Added").text("There was 1 point deducted from your account").position(Pos.BOTTOM_RIGHT).show();
-			assignmentController.score = assignmentController.score - 1;
-			rewardScoreKeep.setText(String.valueOf(assignmentController.score));
-			}else {Notifications.create().title("Error in Purchase").text(insufficientFunds).position(Pos.BOTTOM_RIGHT).show();}
+			if(Variables.score >= 1) {
+			Methods.getBuyNotification("Points deducted", "There was 1 point deducted from your account", 1);
+			rewardScoreKeep.setText(String.valueOf(Variables.score));
+			}else {Methods.noFunds();}
 			break;
 		case 1:
-			if(assignmentController.score >= 2) {
-			Notifications.create().title("Point Added").text("There was 2 point deducted from your account").position(Pos.BOTTOM_RIGHT).show();
-			assignmentController.score = assignmentController.score - 2;
-			rewardScoreKeep.setText(String.valueOf(assignmentController.score));
-			}else {Notifications.create().title("Error in Purchase").text(insufficientFunds).position(Pos.BOTTOM_RIGHT).show();}
+			if(Variables.score >= 2) {
+				Methods.getBuyNotification("Points deducted", "There was 2 points deducted from your account" , 2);
+				rewardScoreKeep.setText(String.valueOf(Variables.score));
+			}else {Methods.noFunds();}
 			break;
 		case 2:
-			if(assignmentController.score >= 3) {
-			Notifications.create().title("Point Added").text("There was 2 point deducted from your account").position(Pos.BOTTOM_RIGHT).show();
-			assignmentController.score = assignmentController.score - 3;
-			rewardScoreKeep.setText(String.valueOf(assignmentController.score));
-			}else {Notifications.create().title("Error in Purchase").text(insufficientFunds).position(Pos.BOTTOM_RIGHT).show();}
+			if(Variables.score >= 3) {
+				Methods.getBuyNotification("Points deducted", "There was 3 points deducted from your account", 3);
+				rewardScoreKeep.setText(String.valueOf(Variables.score));
+			}else {Methods.noFunds();}
 		default:
 			break;
 		}
@@ -58,7 +51,7 @@ public class RewardController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		rewardScoreKeep.setText(String.valueOf(assignmentController.score));
+		rewardScoreKeep.setText(String.valueOf(Variables.score));
 		rewardItems.setItems(rewardItem);
 	}
 }

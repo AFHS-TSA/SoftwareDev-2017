@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.ResourceBundle; 
 import org.controlsfx.control.Notifications;
 
+import initializable.Variables;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,7 +25,6 @@ public class assignmentController implements Initializable {
 	// Initialize variables
 	@FXML
 	private ListView<String> assignmentList;
-	public static int score = 0;
 	
 	private static ObservableList<String> itemList = FXCollections.observableArrayList();
 	
@@ -62,8 +62,8 @@ public class assignmentController implements Initializable {
 	    System.out.println(selectedItem);
 	    itemList.remove(selectedItem);
 	    // Add a point every time you remove something
-		score++;
-	    System.out.println(score);
+		Variables.score++;
+	    System.out.println(Variables.score);
 	}
 	
 	// Sorting button, sorts alphabetically

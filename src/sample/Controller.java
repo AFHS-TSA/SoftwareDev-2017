@@ -23,6 +23,7 @@ import java.util.prefs.Preferences;
 import org.controlsfx.control.Notifications;
 
 import assignmentlist.assignmentController;
+import initializable.Variables;
 
 public class Controller implements Initializable{
 
@@ -49,7 +50,7 @@ public class Controller implements Initializable{
         //placeholder code for reward system layout
         try {
     		Parent rewardParent = FXMLLoader.load(getClass().getResource("/rewardSystem/RewardMain.fxml"));
-    		Scene rewardScene = (new Scene(rewardParent, Main.width, Main.height));
+    		Scene rewardScene = (new Scene(rewardParent, Variables.width, Variables.height));
     		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
     		appStage.setResizable(false);
     		appStage.setScene(rewardScene);
@@ -76,7 +77,7 @@ public class Controller implements Initializable{
     		
 
     		Parent assignmentParent = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
-    		Scene assignmentScene = (new Scene(assignmentParent, Main.width, Main.height));
+    		Scene assignmentScene = (new Scene(assignmentParent, Variables.width, Variables.height));
     		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
     		appStage.setResizable(false);
     		appStage.setScene(assignmentScene);
@@ -110,7 +111,7 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        getScore.setText(String.valueOf(assignmentController.score));
+        getScore.setText(String.valueOf(Variables.score));
     }
 }
 

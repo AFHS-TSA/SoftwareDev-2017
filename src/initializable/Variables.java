@@ -7,5 +7,5 @@ public class Variables {
 	public static int height = 400;
 	
 	// Score
-	public static int score = 0;
+	public static int score = 50;
 }

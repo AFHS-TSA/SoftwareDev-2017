@@ -11,8 +11,8 @@ public class Methods {
 		Notifications.create().title("Error in Purchase").text(insufficientFunds).position(Pos.BOTTOM_RIGHT).show();
 	}
 	
-	public static void getBuyNotification(String title, String text, int minus) {
-		Notifications.create().title(title).text(text).position(Pos.BOTTOM_RIGHT).show();
-		Variables.score = Variables.score - minus;
+	public static void getBuyNotification(int amount) {
+		Notifications.create().title("Points Deducted").text("There was " +amount+ " point deducted from your account").position(Pos.BOTTOM_RIGHT).show();
+		Variables.score = Variables.score - amount;
 	}
 }

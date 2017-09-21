@@ -29,26 +29,26 @@ public class RewardController implements Initializable {
 		switch(getRewardSelection) {
 		case 0:
 			if(Variables.score >= 1) {
-			Methods.getBuyNotification("Points deducted", "There was 1 point deducted from your account", 1);
-			rewardScoreKeep.setText(String.valueOf(Variables.score));
+				Methods.getBuyNotification(1);
+				rewardScoreKeep.setText(String.valueOf(Variables.score));
 			}else {Methods.noFunds();}
 			break;
 		case 1:
 			if(Variables.score >= 2) {
-				Methods.getBuyNotification("Points deducted", "There was 2 points deducted from your account" , 2);
+				Methods.getBuyNotification(2);
 				rewardScoreKeep.setText(String.valueOf(Variables.score));
 			}else {Methods.noFunds();}
 			break;
 		case 2:
 			if(Variables.score >= 3) {
-				Methods.getBuyNotification("Points deducted", "There was 3 points deducted from your account", 3);
+				Methods.getBuyNotification(3);
 				rewardScoreKeep.setText(String.valueOf(Variables.score));
 			}else {Methods.noFunds();}
 		default:
 			break;
 		}
 	}
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		rewardScoreKeep.setText(String.valueOf(Variables.score));

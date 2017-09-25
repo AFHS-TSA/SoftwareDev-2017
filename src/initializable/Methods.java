@@ -15,4 +15,5 @@ public class Methods {
 		Notifications.create().title("Points Deducted").text("There was " +amount+ " point deducted from your account").position(Pos.BOTTOM_RIGHT).show();
 		Variables.score = Variables.score - amount;
 	}
+	
 }

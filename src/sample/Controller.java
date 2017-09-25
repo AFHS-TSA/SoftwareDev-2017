@@ -88,7 +88,7 @@ public class Controller implements Initializable{
         }
     }
 
-    /*private void randomQuoteGen() {
+    private void randomQuoteGen() {
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
         Random random = new Random();
         do {
@@ -106,7 +106,7 @@ public class Controller implements Initializable{
         }
 
     }
-*/
+
 
 
     @Override

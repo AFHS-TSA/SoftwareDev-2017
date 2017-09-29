@@ -32,6 +32,9 @@ public class modalController implements Initializable {
 		// Add an item to assignment list
 		list.add(addItem.getText());
 		System.out.println("Assignment Added");
+		
+		assignmentController.output(addItem.getText());
+		
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 	

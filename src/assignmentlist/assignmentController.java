@@ -55,8 +55,7 @@ public class assignmentController implements Initializable {
 	// Button to remove an item from the list
 	@FXML
 	public void removeList(ActionEvent event) {
-	//	place -= 1;
-		pref.remove("Assignment2");
+		remove();
 		// Get the index of assignment list array
 		int selectedItem = assignmentList.getSelectionModel().getSelectedIndex();
 		if(selectedItem >= 0) {
@@ -74,13 +73,13 @@ public class assignmentController implements Initializable {
 		Variables.score++;
 	    System.out.println(Variables.score);
 	    
-	   // pref.remove("Assignment" + place);
+		//String value = assignmentList.getSelectionModel().getSelectedItem();
 	}
 	
 	// Sorting button, sorts alphabetically
 	@FXML
-	public void getSort(ActionEvent event) {
-		output();
+	public void getSort(ActionEvent event) throws BackingStoreException {
+		System.out.println(pref.name());
 
 		Collections.sort(itemList);
 	}
@@ -100,20 +99,28 @@ public class assignmentController implements Initializable {
 	}
 	
 
-	private void output() {
+	public static void output(String userInput) {
 		int arySize = itemList.size();
 		//System.out.println(arySize);
-		
-		for (int i = 0; i < arySize ; i++) {
-			System.out.println(i);
 			
-			// pref.put("Assignment" + i, itemList.get(i));
-			pref.remove("Assignment15");
-			pref.remove("Assignment");
-			
-			//place += 1;
-		}
+			pref.put(userInput, userInput);
 
+        try {
+            pref.exportNode(new FileOutputStream("Jason"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BackingStoreException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void remove() {
+
+		
+		System.out.println(assignmentList.getSelectionModel().getSelectedItem());
+		pref.remove(assignmentList.getSelectionModel().getSelectedItem());
+		pref.remove("new");
+		
         try {
             pref.exportNode(new FileOutputStream("Jason"));
         } catch (IOException e) {
@@ -129,11 +136,11 @@ public class assignmentController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// Initializes the array list
 		assignmentList.setItems(itemList);
-
-		for (int i = 0; i < 15; i++) {
-			String get = pref.get("Assignment" + i, "root");
+		
+/*		for (int i = 0; i < 15; i++) {
+			String get = pref.get("How are you?", "root");
 			itemList.add(get);
-		}
+		}*/
 	}
 
 }

@@ -37,8 +37,8 @@ public class LoginController implements Initializable {
 	Preferences pref = Preferences.userNodeForPackage(LoginController.class);
 	private void output() {
 		
-        pref.put("Username", myUsername[1]);
-        pref.put("Password", myPassword[1]);
+        pref.put("Username", myUsername[0]);
+        pref.put("Password", myPassword[0]);
         
  
         try {
@@ -54,6 +54,7 @@ public class LoginController implements Initializable {
 	
 	@FXML
 	public void onLogin(ActionEvent event) throws IOException {
+		output();
 		
 		String getUser = pref.get("Username", "root");
 		String getPass = pref.get("Password", "root");

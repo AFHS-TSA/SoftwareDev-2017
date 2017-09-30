@@ -88,7 +88,7 @@ public class Controller implements Initializable{
         }
     }
 
-    private void randomQuoteGen() {
+/*    private void randomQuoteGen() {
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
         Random random = new Random();
         do {
@@ -105,14 +105,14 @@ public class Controller implements Initializable{
         }
 
 
-    }
+    }*/
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getScore.setText(String.valueOf(Variables.score));
-        randomQuoteGen();
+        //randomQuoteGen();
     }
 }
 

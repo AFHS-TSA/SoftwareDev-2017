@@ -3,10 +3,12 @@
 <preferences EXTERNAL_XML_VERSION="1.0">
   <root type="user">
     <map/>
-    <node name="login">
+    <node name="assignmentlist">
       <map>
-        <entry key="Password" value="Password"/>
-        <entry key="Username" value="Jason"/>
+        <entry key="Item 1" value="Item 1"/>
+        <entry key="Item 2" value="Item 2"/>
+        <entry key="Item 3" value="Item 3"/>
+        <entry key="Item 4" value="Item 4"/>
       </map>
     </node>
   </root>

@@ -1,9 +1,13 @@
 package assignmentlist;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
-import java.util.ResourceBundle; 
+import java.util.ResourceBundle;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
+
 import org.controlsfx.control.Notifications;
 
 import initializable.Variables;
@@ -19,12 +23,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import login.LoginController;
 
 public class assignmentController implements Initializable {
 
 	// Initialize variables
 	@FXML
 	private ListView<String> assignmentList;
+
+	static Preferences pref = Preferences.userNodeForPackage(assignmentController.class);
+
+	String password = pref.get("Password", "root");
 	
 	private static ObservableList<String> itemList = FXCollections.observableArrayList();
 	
@@ -48,6 +57,7 @@ public class assignmentController implements Initializable {
 	// Button to remove an item from the list
 	@FXML
 	public void removeList(ActionEvent event) {
+		remove();
 		// Get the index of assignment list array
 		int selectedItem = assignmentList.getSelectionModel().getSelectedIndex();
 		if(selectedItem >= 0) {
@@ -64,11 +74,14 @@ public class assignmentController implements Initializable {
 	    // Add a point every time you remove something
 		Variables.score++;
 	    System.out.println(Variables.score);
+	    
+		//String value = assignmentList.getSelectionModel().getSelectedItem();
 	}
 	
 	// Sorting button, sorts alphabetically
 	@FXML
 	public void getSort(ActionEvent event) {
+		
 		Collections.sort(itemList);
 	}
 	
@@ -86,11 +99,51 @@ public class assignmentController implements Initializable {
 		}
 	}
 	
+
+	public static void output(String userInput) {
+
+			pref.put(userInput, userInput);
+
+        try {
+            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BackingStoreException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void remove() {
+
+		
+		System.out.println(assignmentList.getSelectionModel().getSelectedItem());
+		pref.remove(assignmentList.getSelectionModel().getSelectedItem());
+		pref.remove("new");
+		
+        try {
+            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BackingStoreException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// Initializes the array list
 		assignmentList.setItems(itemList);
+		
+		String[] get;
+		try {
+			get = pref.keys();
+			itemList.addAll(get);
+			
+		} catch (BackingStoreException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,8 +1,11 @@
 package assignmentlist;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,12 +25,16 @@ public class modalController implements Initializable {
 	@FXML
 	private Button cancelBtn;
 	ObservableList<String> list = assignmentController.returnList();
+
 	
 	@FXML
 	public void addItem(ActionEvent event) throws IOException {
 		// Add an item to assignment list
 		list.add(addItem.getText());
 		System.out.println("Assignment Added");
+		
+		assignmentController.output(addItem.getText());
+		
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 	

@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+import assignmentlist.assignmentController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,11 +31,14 @@ public class LoginController implements Initializable {
 	@FXML
 	private PasswordField password;
 	
+	
 	String[] myUsername = {"Jason", "Tom", "Daniel"};
 	String[] myPassword = {"Password", "aaa", "123"};
 	
 
-	Preferences pref = Preferences.userNodeForPackage(LoginController.class);
+	static Preferences pref = Preferences.userNodeForPackage(LoginController.class);
+	public static String getUser = pref.get("Username", "root");
+	
 	private void output() {
 		
         pref.put("Username", myUsername[0]);
@@ -54,6 +58,7 @@ public class LoginController implements Initializable {
 	
 	@FXML
 	public void onLogin(ActionEvent event) throws IOException {
+
 		output();
 		
 		String getUser = pref.get("Username", "root");
@@ -74,39 +79,6 @@ public class LoginController implements Initializable {
 				((Node)(event.getSource())).getScene().getWindow().hide();
 			}
 		}
-		
-		
-		/*if (Arrays.asList(myUsername).contains(username.getText())) {
-			int index = -1;
-			
-			for (int i=0;i<myUsername.length;i++) {
-			    if (myUsername[i].equals(username.getText())) {
-			        index = i;
-			        break;
-			    }
-			}
-				if (myPassword[index].equals(password.getText())) {
-					((Node)(event.getSource())).getScene().getWindow().hide();
-					System.out.println("Password is correct");
-					
-					
-					try {
-						Parent modalParent = FXMLLoader.load(getClass().getResource("/sample/sample.fxml"));
-						Stage stage = new Stage();
-						stage.setScene(new Scene(modalParent));
-						stage.setResizable(false);
-						stage.alwaysOnTopProperty();
-						stage.show();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					
-				}else {
-					System.out.println("Password is wrong");
-				}
-		}else {
-			System.out.println("Wrong");
-		}*/
 	}
 	
 	@Override

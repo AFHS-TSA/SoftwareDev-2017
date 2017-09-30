@@ -30,10 +30,12 @@ public class assignmentController implements Initializable {
 	// Initialize variables
 	@FXML
 	private ListView<String> assignmentList;
+
+	static Preferences pref = Preferences.userNodeForPackage(assignmentController.class);
+
+	String password = pref.get("Password", "root");
 	
-	static Preferences pref = Preferences.userNodeForPackage(LoginController.class);
 	private static ObservableList<String> itemList = FXCollections.observableArrayList();
-	int place = 1;
 	
 	public static ObservableList<String> returnList() {
 		return(itemList);
@@ -78,9 +80,8 @@ public class assignmentController implements Initializable {
 	
 	// Sorting button, sorts alphabetically
 	@FXML
-	public void getSort(ActionEvent event) throws BackingStoreException {
-		System.out.println(pref.name());
-
+	public void getSort(ActionEvent event) {
+		
 		Collections.sort(itemList);
 	}
 	
@@ -100,13 +101,11 @@ public class assignmentController implements Initializable {
 	
 
 	public static void output(String userInput) {
-		int arySize = itemList.size();
-		//System.out.println(arySize);
-			
+
 			pref.put(userInput, userInput);
 
         try {
-            pref.exportNode(new FileOutputStream("Jason"));
+            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (BackingStoreException e) {
@@ -122,7 +121,7 @@ public class assignmentController implements Initializable {
 		pref.remove("new");
 		
         try {
-            pref.exportNode(new FileOutputStream("Jason"));
+            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (BackingStoreException e) {
@@ -137,10 +136,14 @@ public class assignmentController implements Initializable {
 		// Initializes the array list
 		assignmentList.setItems(itemList);
 		
-/*		for (int i = 0; i < 15; i++) {
-			String get = pref.get("How are you?", "root");
-			itemList.add(get);
-		}*/
+		String[] get;
+		try {
+			get = pref.keys();
+			itemList.addAll(get);
+			
+		} catch (BackingStoreException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

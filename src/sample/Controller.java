@@ -88,9 +88,6 @@ public class Controller implements Initializable{
         }
     }
 
-<<<<<<< HEAD
-    private void randomQuoteGen() {
-=======
 /*    private void randomQuoteGen() {
 >>>>>>> develop
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
@@ -107,24 +104,14 @@ public class Controller implements Initializable{
         } catch (BackingStoreException e) {
             e.printStackTrace();
         }
-
-<<<<<<< HEAD
-    }
-=======
-
     }*/
->>>>>>> develop
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-<<<<<<< HEAD
-        randomQuoteGen();
-=======
         getScore.setText(String.valueOf(Variables.score));
         //randomQuoteGen();
->>>>>>> develop
     }
 }
 

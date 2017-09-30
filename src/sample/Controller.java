@@ -1,12 +1,16 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.FileOutputStream;
@@ -16,6 +20,10 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
+import org.controlsfx.control.Notifications;
+
+import assignmentlist.assignmentController;
+import initializable.Variables;
 
 public class Controller implements Initializable{
 
@@ -34,44 +42,57 @@ public class Controller implements Initializable{
     public Label quote;
     @FXML
     public Button rewardButton;
-
-
+    @FXML
+    private Label getScore;
 
     @FXML
-    private void onRewardClicked() {
+    private void onRewardClicked(ActionEvent e) {
         //placeholder code for reward system layout
-        /*Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("rewardsystemlayout.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("My Galaxy");
-            stage.setScene(new Scene(root, width, height));
-            stage.show();
+    		Parent rewardParent = FXMLLoader.load(getClass().getResource("/rewardSystem/RewardMain.fxml"));
+    		Scene rewardScene = (new Scene(rewardParent, Variables.width, Variables.height));
+    		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    		appStage.setResizable(false);
+    		appStage.setScene(rewardScene);
+    		appStage.show();
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        catch (IOException ec) {
+            ec.printStackTrace();
+        }
 
     }
 
     @FXML
-    private void onAssignmentClicked() {
+    private void onAssignmentClicked(ActionEvent e) {
         //placeholder code for assignment list
 
         try {
+        	/*
     		Parent assignlist = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
     		Stage stage = new Stage();
     		stage.setScene(new Scene(assignlist));
     		stage.setResizable(false);
     		stage.alwaysOnTopProperty();
-    		stage.show();
+    		stage.show();*/
+    		
+
+    		Parent assignmentParent = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));
+    		Scene assignmentScene = (new Scene(assignmentParent, Variables.width, Variables.height));
+    		Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    		appStage.setResizable(false);
+    		appStage.setScene(assignmentScene);
+    		appStage.show();
         }
-        catch (IOException e) {
-            e.printStackTrace();
+        catch (IOException ec) {
+            ec.printStackTrace();
         }
     }
 
+<<<<<<< HEAD
     private void randomQuoteGen() {
+=======
+/*    private void randomQuoteGen() {
+>>>>>>> develop
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
         Random random = new Random();
         do {
@@ -87,13 +108,23 @@ public class Controller implements Initializable{
             e.printStackTrace();
         }
 
+<<<<<<< HEAD
     }
+=======
+
+    }*/
+>>>>>>> develop
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+<<<<<<< HEAD
         randomQuoteGen();
+=======
+        getScore.setText(String.valueOf(Variables.score));
+        //randomQuoteGen();
+>>>>>>> develop
     }
 }
 

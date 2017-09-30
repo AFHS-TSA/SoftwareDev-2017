@@ -3,13 +3,10 @@
 <preferences EXTERNAL_XML_VERSION="1.0">
   <root type="user">
     <map/>
-    <node name="sample">
+    <node name="login">
       <map>
-<<<<<<< HEAD
-        <entry key="RandomNumber" value="4"/>
-=======
-        <entry key="RandomNumber" value="1"/>
->>>>>>> develop
+        <entry key="Password" value="Password"/>
+        <entry key="Username" value="Jason"/>
       </map>
     </node>
   </root>

@@ -17,4 +17,24 @@ public class Methods {
 		Notifications.create().title("Points Deducted").text("There was " +amount+ " point deducted from your account").position(Pos.BOTTOM_RIGHT).show();
 		Variables.score = Variables.score - amount;
 	}
+	
+	public static double getStudy() {
+		double exp1 = (-Variables.time1/(Variables.memStrength+Variables.factor));
+		double exp2 = (-Variables.time2/(Variables.memStrength+Variables.factor));
+		double y1 = Math.exp(exp1);
+		double y2 = Math.exp(exp2);
+		if (y1-y2 > .7) {
+			System.out.println("Study");
+			Variables.factor++;
+			Variables.memStrength++;
+			time2 = .041;
+			Variables.n++;
+			Variables.d+= .041;
+		} else {
+			System.out.println("Relax");
+			Variables.d+=.041;
+			time2++;
+		}
+		return Variables.n;
+	}
 }

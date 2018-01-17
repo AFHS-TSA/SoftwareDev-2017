@@ -5,22 +5,26 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-
     }
 }
+
 apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
+dependencies {
+	compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.13'
+}
+
 apply plugin: 'javafx-gradle-plugin'
 
-
 jfx {
-    // minimal requirement for jfxJar-task
-    mainClass = 'sample.Main'
-    
-    // minimal requirement for jfxNative-task
+    mainClass = 'app.sample.Main'
+
     vendor = 'TSASoftware'
 }

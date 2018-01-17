@@ -6,8 +6,8 @@ You must have installed:
 * Java Developer Kit 8 with at least Update 40
 
 Run this command to create an executable JavaFx-jar
-'''
+```
 gradle jfxJar
-'''
+```
 
 If you don't have gradle you can use the gradle wrapper

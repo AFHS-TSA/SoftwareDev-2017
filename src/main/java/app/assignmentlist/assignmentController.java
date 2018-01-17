@@ -11,6 +11,7 @@ import java.util.prefs.Preferences;
 import org.controlsfx.control.Notifications;
 
 import main.java.app.initializable.Variables;
+import main.java.app.login.LoginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +25,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the assignment.fxml scene
+ */
 public class assignmentController implements Initializable {
 
 	// Initialize variables
@@ -40,7 +44,11 @@ public class assignmentController implements Initializable {
 		return(itemList);
 	}	
 	
-	// Button to add an assignment to the list
+	/**
+	 * Handles button event to add an assignment to the list
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleButton(ActionEvent event) throws IOException {
 		// Create the new window
@@ -53,7 +61,10 @@ public class assignmentController implements Initializable {
 		System.out.println(stage.getOnHiding());
 	}
 	
-	// Button to remove an item from the list
+	/**
+	 * Handles button event to remove an item from the list.
+	 * @param event
+	 */
 	@FXML
 	public void removeList(ActionEvent event) {
 		remove();
@@ -77,14 +88,20 @@ public class assignmentController implements Initializable {
 		//String value = assignmentList.getSelectionModel().getSelectedItem();
 	}
 	
-	// Sorting button, sorts alphabetically
+	/**
+	 * Handles button event to sort, sorts alphabetically.
+	 * @param event
+	 */
 	@FXML
 	public void getSort(ActionEvent event) {
 		
 		Collections.sort(itemList);
 	}
 	
-	// Back to home button
+	/**
+	 * Handles button event to go back to sample.fxml.
+	 * @param e
+	 */
 	@FXML
 	public void getHome(ActionEvent e) {
 		try {
@@ -98,20 +115,26 @@ public class assignmentController implements Initializable {
 		}
 	}
 	
-
+	/**
+	 * 
+	 * @param userInput
+	 */
 	public static void output(String userInput) {
 
 			pref.put(userInput, userInput);
 
-//        try {
-//            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (BackingStoreException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BackingStoreException e) {
+            e.printStackTrace();
+        }
 	}
 	
+	/**
+	 * Removes an item for the assigmentList.
+	 */
 	public void remove() {
 
 		
@@ -119,17 +142,19 @@ public class assignmentController implements Initializable {
 		pref.remove(assignmentList.getSelectionModel().getSelectedItem());
 		pref.remove("new");
 		
-//        try {
-//            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (BackingStoreException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            pref.exportNode(new FileOutputStream(LoginController.getUser + "Assignment"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BackingStoreException e) {
+            e.printStackTrace();
+        }
 	}
 	
 	
-	
+	/**
+	 * Initializes the array list and the database.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// Initializes the array list

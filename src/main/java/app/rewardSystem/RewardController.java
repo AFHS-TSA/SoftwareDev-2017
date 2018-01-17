@@ -13,6 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * Controller class for RewardMain.fxml
+ */
 public class RewardController implements Initializable {
 	
 	@FXML
@@ -22,6 +25,11 @@ public class RewardController implements Initializable {
 	
 	private static ObservableList<String> rewardItem = FXCollections.observableArrayList("Placeholder Item 1", "Placeholder Item 2", "Placeholder Item 3");
 	
+	/**
+	 * Gets the user selection.
+	 * Creates notification with amount deducted from user account.
+	 * @param e
+	 */
 	public void getRewardBuy(MouseEvent e) {
 		int getRewardSelection = rewardItems.getSelectionModel().getSelectedIndex();
 		System.out.println(getRewardSelection);
@@ -49,6 +57,9 @@ public class RewardController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Initializes the Reward List.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		rewardScoreKeep.setText(String.valueOf(Variables.score));

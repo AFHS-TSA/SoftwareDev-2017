@@ -24,6 +24,9 @@ import java.util.prefs.Preferences;
 import main.java.app.assignmentlist.assignmentController;
 import main.java.app.initializable.Variables;
 
+/**
+ * Controller class for sample.fxml
+ */
 public class Controller implements Initializable{
 
 

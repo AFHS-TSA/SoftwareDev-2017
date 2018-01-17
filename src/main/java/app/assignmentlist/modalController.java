@@ -15,9 +15,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for modal.fxml scene.
+ */
 public class modalController implements Initializable {	
 
-	// Initialize variables
 	@FXML
 	private TextField addItem;
 	@FXML
@@ -26,7 +28,11 @@ public class modalController implements Initializable {
 	private Button cancelBtn;
 	ObservableList<String> list = assignmentController.returnList();
 
-	
+	/**
+	 * Adds an item to the assignmentList
+	 * @param event Called to close the scene after an item is added.
+	 * @throws IOException
+	 */
 	@FXML
 	public void addItem(ActionEvent event) throws IOException {
 		// Add an item to assignment list
@@ -38,7 +44,10 @@ public class modalController implements Initializable {
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 	
-	
+	/**
+	 * Closes the scene.
+	 * @param event Called to close the scene
+	 */
 	@FXML
 	public void cancelAdd(ActionEvent event) {
 		// Closes window

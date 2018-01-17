@@ -24,6 +24,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the login window. 
+ */
 public class LoginController implements Initializable {
 
 	@FXML
@@ -38,7 +41,7 @@ public class LoginController implements Initializable {
 
 	static Preferences pref = Preferences.userNodeForPackage(LoginController.class);
 	public static String getUser = pref.get("Username", "root");
-	
+
 	private void output() {
 		
         pref.put("Username", myUsername[0]);

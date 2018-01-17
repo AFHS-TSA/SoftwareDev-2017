@@ -7,8 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Main class that loads the root scene.
+ */
 public class Main extends Application {
 	
+	/**
+	 * Creates sample.fxml scene
+	 */
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/sample.fxml"));
@@ -18,7 +24,10 @@ public class Main extends Application {
         primaryStage.setResizable(false);
     }
 
-
+    /**
+     * Launches start()
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }

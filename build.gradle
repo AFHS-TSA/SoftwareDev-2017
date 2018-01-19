@@ -28,3 +28,7 @@ jfx {
 
     vendor = 'TSASoftware'
 }
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.0'
+}

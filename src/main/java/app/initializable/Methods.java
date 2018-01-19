@@ -29,7 +29,7 @@ public class Methods {
 		Variables.score = Variables.score - amount;
 	}
 	/**
-	 * TODO Create comment for this method.
+	 * TODO create a comment for method
 	 * @return
 	 */
 	public static double getStudy() {

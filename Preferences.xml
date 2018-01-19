@@ -5,7 +5,11 @@
     <map/>
     <node name="sample">
       <map>
+<<<<<<< HEAD
+        <entry key="RandomNumber" value="4"/>
+=======
         <entry key="RandomNumber" value="1"/>
+>>>>>>> develop
       </map>
     </node>
   </root>

@@ -105,8 +105,6 @@ public class Controller implements Initializable{
         } catch (BackingStoreException e) {
             e.printStackTrace();
         }
-
-
     }*/
 
 

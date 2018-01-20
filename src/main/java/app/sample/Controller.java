@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,6 +22,11 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
+
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 
 import main.java.app.assignmentlist.assignmentController;
 import main.java.app.initializable.Variables;
@@ -46,7 +53,11 @@ public class Controller implements Initializable{
     public Button rewardButton;
     @FXML
     private Label getScore;
-
+    @FXML
+    private JFXHamburger homeBurger;
+    @FXML
+    private JFXDrawer navDrawer;
+    
     @FXML
     private void onRewardClicked(ActionEvent e) {
         //placeholder code for reward system layout
@@ -90,6 +101,28 @@ public class Controller implements Initializable{
         }
     }
 
+    private void Drawer() {
+        try {    	
+    		AnchorPane drawerContent = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/DrawerContent.fxml"));
+    		navDrawer.setSidePane(drawerContent);
+        	HamburgerBackArrowBasicTransition burgerTask = new HamburgerBackArrowBasicTransition(homeBurger);
+        	burgerTask.setRate(-1);
+        	homeBurger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e)->{
+        	    burgerTask.setRate(burgerTask.getRate()*-1);
+        	    burgerTask.play();
+        	    
+        	    if(navDrawer.isShown()) {
+        	    	navDrawer.close();
+        	    } else {
+        	    	navDrawer.open();
+        	    }
+        	 });
+        	
+        } catch (IOException e1) {
+    		e1.printStackTrace();
+        }
+    }
+    
 /*    private void randomQuoteGen() {
 >>>>>>> develop
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
@@ -112,6 +145,9 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    	
+    	Drawer();
+    	
         getScore.setText(String.valueOf(Variables.score));
         //randomQuoteGen();
     }

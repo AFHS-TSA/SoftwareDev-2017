@@ -19,6 +19,7 @@ repositories {
 
 dependencies {
 	compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.13'
+	compile 'com.jfoenix:jfoenix:8.0.1'
 }
 
 apply plugin: 'javafx-gradle-plugin'

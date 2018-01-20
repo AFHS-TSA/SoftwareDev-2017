@@ -1,0 +1,16 @@
+.home-back {
+  -fx-background-color: #383838;
+}
+
+.home-button {
+  -fx-background-color: transparent;
+  -fx-border-color: #A0A0A0;
+  -fx-border-style: solid;
+  -fx-border-width: 3px;
+  -fx-border-radius: 50px;  
+}
+
+.home-button:hover {
+  -fx-background-color: #A0A0A0;
+  -fx-border-color: #383838;
+}

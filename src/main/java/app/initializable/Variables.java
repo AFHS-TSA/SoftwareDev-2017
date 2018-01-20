@@ -26,4 +26,7 @@ public class Variables {
 	 * Sets the score
 	 */
 	public static int score = 20;
+	
+	public static int shadow = 3;
+	
 }

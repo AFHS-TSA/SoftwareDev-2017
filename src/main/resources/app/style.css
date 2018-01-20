@@ -14,3 +14,17 @@
   -fx-background-color: #A0A0A0;
   -fx-border-color: #383838;
 }
+
+/* Hamburger Style */
+
+.jfx-hamburger {
+    -fx-spacing: 5;
+    -fx-cursor: hand;
+}
+
+.jfx-hamburger StackPane {
+    -fx-pref-width: 40px;
+    -fx-pref-height: 7px;
+    -fx-background-color: #FFF;
+    -fx-background-radius: 5px;
+}

@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,8 @@ import java.util.prefs.Preferences;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXMasonryPane;
+import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 
@@ -46,6 +49,8 @@ public class Controller implements Initializable{
                        "Test 4"};
 
     @FXML
+    private AnchorPane topBar;
+    @FXML
     public Label dashText;
     @FXML
     public Label quote;
@@ -57,6 +62,10 @@ public class Controller implements Initializable{
     private JFXHamburger homeBurger;
     @FXML
     private JFXDrawer navDrawer;
+    @FXML
+    private JFXMasonryPane Masonry;
+    @FXML
+    private Label test;
     
     @FXML
     private void onRewardClicked(ActionEvent e) {
@@ -77,6 +86,7 @@ public class Controller implements Initializable{
 
     @FXML
     private void onAssignmentClicked(ActionEvent e) {
+
         //placeholder code for assignment list
 
         try {
@@ -101,6 +111,11 @@ public class Controller implements Initializable{
         }
     }
 
+    @FXML
+    private void onDelete(ActionEvent e) {
+    	Masonry.getChildren().remove(test);
+    }
+    
     private void Drawer() {
         try {    	
     		AnchorPane drawerContent = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/DrawerContent.fxml"));
@@ -123,6 +138,11 @@ public class Controller implements Initializable{
         }
     }
     
+    @SuppressWarnings("static-access")
+	private void Shadow() {
+    	JFXDepthManager shadow = null;
+    	shadow.setDepth(topBar, Variables.shadow);
+    }
 /*    private void randomQuoteGen() {
 >>>>>>> develop
         Preferences preferences = Preferences.userNodeForPackage(Controller.class);
@@ -147,7 +167,7 @@ public class Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
     	
     	Drawer();
-    	
+    	Shadow();
         getScore.setText(String.valueOf(Variables.score));
         //randomQuoteGen();
     }

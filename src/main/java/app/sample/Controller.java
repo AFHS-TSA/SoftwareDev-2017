@@ -88,7 +88,7 @@ public class Controller implements Initializable{
     private void onAssignmentClicked(ActionEvent e) {
 
         //placeholder code for assignment list
-
+        System.out.println("TESTING");
         try {
         	/*
     		Parent assignlist = FXMLLoader.load(getClass().getResource("/assignmentlist/assignmentlist.fxml"));

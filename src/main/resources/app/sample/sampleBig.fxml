@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXDrawer?>
-<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXMasonryPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ContextMenu?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.app.sample.Controller">
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.app.sample.ControllerBig">
    <bottom>
       <AnchorPane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,8 +23,7 @@
    <top>
       <AnchorPane fx:id="topBar" prefHeight="52.0" prefWidth="1024.0" style="-fx-background-color: #3F51B5;" BorderPane.alignment="CENTER">
          <children>
-            <JFXHamburger fx:id="homeBurger" layoutX="14.0" layoutY="12.0" prefHeight="29.0" prefWidth="33.0" stylesheets="@../style.css" />
-            <Label fx:id="dashText" layoutX="414.0" layoutY="4.0" text="Dashboard" textFill="WHITE">
+            <Label fx:id="dashText" layoutX="514.0" layoutY="4.0" text="Dashboard" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
@@ -57,8 +55,14 @@
                   </Label>
                </children>
             </JFXMasonryPane>
-            <JFXDrawer fx:id="navDrawer" defaultDrawerSize="265.0" focusTraversable="true" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" overLayVisible="false" prefHeight="570.0" prefWidth="265.0" resizableOnDrag="true" />
          </children>
       </AnchorPane>
    </center>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="69.0" layoutY="211.0" />
+         </children>
+      </AnchorPane>
+   </left>
 </BorderPane>

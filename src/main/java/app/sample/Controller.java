@@ -13,6 +13,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -50,6 +51,10 @@ public class Controller implements Initializable{
 
     @FXML
     private AnchorPane topBar;
+    @FXML
+    private AnchorPane rightDrawer;
+    @FXML
+    private BorderPane mainPane;
     @FXML
     public Label dashText;
     @FXML
@@ -113,7 +118,8 @@ public class Controller implements Initializable{
 
     @FXML
     private void onDelete(ActionEvent e) {
-    	Masonry.getChildren().remove(test);
+    	//Masonry.getChildren().remove(test);
+    	System.out.println(mainPane.getWidth());
     }
     
     private void Drawer() {
@@ -165,11 +171,31 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	
     	Drawer();
     	Shadow();
         getScore.setText(String.valueOf(Variables.score));
         //randomQuoteGen();
+        
+        mainPane.widthProperty().addListener((obs, oldVal, newVal) -> {
+			
+        	
+        	System.out.println(mainPane.getWidth());
+        	if(mainPane.getWidth() < 875) {
+        		homeBurger.setVisible(true);
+        		rightDrawer.setVisible(false);
+        	} else {
+        		homeBurger.setVisible(false);
+        		rightDrawer.setVisible(true);
+        		
+        		try {
+    				AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/DrawerContent.fxml"));
+    				rightDrawer.getChildren().setAll(pane);
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+        	}
+        });
     }
 }
 

@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.app.sample.Controller">
+<BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.app.sample.Controller">
    <bottom>
-      <AnchorPane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
             <Text layoutX="629.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score:" />
             <Label fx:id="getScore" layoutX="704.0" layoutY="130.0" text="0" />
@@ -22,9 +22,9 @@
       </AnchorPane>
    </bottom>
    <top>
-      <AnchorPane fx:id="topBar" prefHeight="52.0" prefWidth="1024.0" style="-fx-background-color: #3F51B5;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="topBar" style="-fx-background-color: #3F51B5;" BorderPane.alignment="CENTER">
          <children>
-            <JFXHamburger fx:id="homeBurger" layoutX="14.0" layoutY="12.0" prefHeight="29.0" prefWidth="33.0" stylesheets="@../style.css" />
+            <JFXHamburger fx:id="homeBurger" layoutX="14.0" layoutY="12.0" prefHeight="29.0" prefWidth="33.0" stylesheets="@../style.css" visible="false" />
             <Label fx:id="dashText" layoutX="414.0" layoutY="4.0" text="Dashboard" textFill="WHITE">
                <font>
                   <Font size="36.0" />
@@ -34,9 +34,9 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <JFXMasonryPane fx:id="Masonry" minHeight="75.0" minWidth="555.0" prefHeight="572.0" prefWidth="1024.0">
+            <JFXMasonryPane fx:id="Masonry" prefHeight="568.0" prefWidth="610.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onAssignmentClicked" styleClass="home-button" stylesheets="@../style.css" text="Assignment List" textFill="WHITE" />
                   <Label fx:id="test" text="Label">
@@ -61,4 +61,7 @@
          </children>
       </AnchorPane>
    </center>
+   <right>
+      <AnchorPane fx:id="rightDrawer" prefWidth="265.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

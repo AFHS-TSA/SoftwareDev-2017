@@ -20,58 +20,19 @@ public class Main extends Application {
 	
     @FXML
     private BorderPane mainPane;
+    public static double width = 0;
 	
+    
 	/**
 	 * Creates sample.fxml scene
 	 */
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        primaryStage.widthProperty().greaterThan(600).addListener((obs, oldValue, newValue) -> {
-//		    if (!newValue) {
-//		    	BorderPane mainPane;
-//				try {
-//					mainPane = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/DrawerContent.fxml"));
-//			    	primaryStage.setScene(new Scene(mainPane));	
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}	      
-//		    } else {
-//		    	BorderPane mainPane;
-//				try {
-//					mainPane = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/sampleBig.fxml"));
-//					primaryStage.setScene(new Scene(mainPane));
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-    	
-    	primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
-        	System.out.println(primaryStage.getWidth());
-        	System.out.println(primaryStage.getHeight());
-        	if(primaryStage.getWidth() > 600) {
-				try {
-					mainPane = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/sample.fxml"));
-			    	primaryStage.setScene(new Scene(mainPane));
-			    	primaryStage.setResizable(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-        	} else {
-        			try {
-						mainPane = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/sampleBig.fxml"));
-	        			primaryStage.setScene(new Scene(mainPane));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-        	}
-    	});
     	setStage(primaryStage);
-
+    	
+    	  primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
+    		  double width = 0; 
+    	  });
     }
 
     /**
@@ -84,7 +45,7 @@ public class Main extends Application {
     
     public void setStage(Stage stage) {
         try {
-        Parent root = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/sample.fxml"));
         stage.setTitle("Hello World");
         stage.setScene(new Scene(root));
         stage.show();

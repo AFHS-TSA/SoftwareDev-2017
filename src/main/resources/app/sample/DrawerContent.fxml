@@ -1,50 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="768.0" prefWidth="265.0" style="-fx-background-color: #cc0000;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="768.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.app.sample.DrawerController">
    <children>
-      <Accordion layoutY="222.0" prefHeight="546.0" prefWidth="265.0">
-        <panes>
-          <TitledPane animated="false" text="untitled 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="untitled 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" prefHeight="159.0" prefWidth="265.0" text="untitled 3">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-            <TitledPane animated="false" prefHeight="159.0" prefWidth="265.0" text="untitled 3">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </TitledPane>
-            <TitledPane animated="false" prefHeight="159.0" prefWidth="265.0" text="untitled 3">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </TitledPane>
-        </panes>
-      </Accordion>
-      <ImageView fitHeight="217.0" fitWidth="265.0" layoutY="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../Screenshots/2018-01-12-22:23:24-screengrab.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
+      <JFXListView fx:id="drawerList" editable="true" fixedCellSize="0.0" layoutX="9.0" layoutY="224.0" prefHeight="544.0" prefWidth="265.0" style="-fx-background-color: #000;" stylesheets="@../style.css" verticalGap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="224.0" />
+      <JFXButton layoutX="51.0" layoutY="47.0" onAction="#test" text="skjadf" />
+      <JFXToggleButton layoutX="7.0" layoutY="164.0" onAction="#tglCollapse" text="Toggle Collapse" />
    </children>
 </AnchorPane>

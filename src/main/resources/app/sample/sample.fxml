@@ -57,7 +57,7 @@
                   </Label>
                </children>
             </JFXMasonryPane>
-            <JFXDrawer fx:id="navDrawer" defaultDrawerSize="265.0" focusTraversable="true" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" overLayVisible="false" prefHeight="570.0" prefWidth="265.0" resizableOnDrag="true" />
+            <JFXDrawer fx:id="navDrawer" defaultDrawerSize="265.0" nodeOrientation="LEFT_TO_RIGHT" overLayVisible="false" prefHeight="570.0" prefWidth="265.0" resizableOnDrag="true" />
          </children>
       </AnchorPane>
    </center>

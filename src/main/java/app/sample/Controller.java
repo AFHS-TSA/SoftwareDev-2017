@@ -27,6 +27,7 @@ import java.util.prefs.Preferences;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
@@ -71,6 +72,8 @@ public class Controller implements Initializable{
     private JFXMasonryPane Masonry;
     @FXML
     private Label test;
+    @FXML
+    private JFXListView drawerList;
     
     @FXML
     private void onRewardClicked(ActionEvent e) {
@@ -88,6 +91,7 @@ public class Controller implements Initializable{
         }
 
     }
+    
 
     @FXML
     private void onAssignmentClicked(ActionEvent e) {
@@ -119,7 +123,10 @@ public class Controller implements Initializable{
     @FXML
     private void onDelete(ActionEvent e) {
     	//Masonry.getChildren().remove(test);
-    	System.out.println(mainPane.getWidth());
+    	
+    	JFXListView<Label> list = new JFXListView<Label>();
+    	for(int i = 0 ; i < 4 ; i++) list.getItems().add(new Label("Item " + i));
+    	list.getStyleClass().add("mylistview");
     }
     
     private void Drawer() {
@@ -182,10 +189,12 @@ public class Controller implements Initializable{
         	System.out.println(mainPane.getWidth());
         	if(mainPane.getWidth() < 875) {
         		homeBurger.setVisible(true);
+        		navDrawer.setVisible(true);
         		rightDrawer.setVisible(false);
         	} else {
         		homeBurger.setVisible(false);
         		rightDrawer.setVisible(true);
+        		navDrawer.setVisible(false);
         		
         		try {
     				AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/resources/app/sample/DrawerContent.fxml"));
